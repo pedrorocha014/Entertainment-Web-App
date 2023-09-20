@@ -20,19 +20,27 @@ type SignUpSchemaData = z.infer<typeof signUpSchema>;
 function SignUpForm(prop: SignUpFormProp) {
     const {handleSubmit, register, formState: {errors}} = useForm<SignUpSchemaData>({ resolver: zodResolver(signUpSchema) })
 
+    const onSubmit = () => console.log(errors);
+
     return (
         <div className="flex flex-col items-center p-6">
-            <form className='mb-6'>
+            <form className='mb-6' onSubmit={handleSubmit(onSubmit)}>
                 <h1 className='text-4xl text-white mb-12'>Sign Up</h1>
+
+                {errors.email && <span className='float-right text-[#FF6155] text-xs font-bold'>{errors.email.message}</span>}
                 <input 
                     className={`text-white pl-4 w-full h-14 mb-6 bg-[#161D2F] border-b`} 
                     {...register('email')} 
                     placeholder='Email address' />
+
+                {errors.password && <span className='float-right text-[#FF6155] text-xs font-bold'>{errors.password.message}</span>}
                 <input 
                     className={`text-white pl-4 w-full h-14 mb-6 bg-[#161D2F] border-b`} 
                     {...register('password')} 
                     type="password"
                     placeholder='Password' />
+
+                {errors.confirmPassword && <span className='float-right text-[#FF6155] text-xs font-bold'>{errors.confirmPassword.message}</span>}
                 <input 
                     className={`text-white pl-4 w-full h-14 mb-6 bg-[#161D2F] border-b`} 
                     {...register('confirmPassword')} 
