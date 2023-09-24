@@ -14,8 +14,8 @@ function TrendingCard(prop: Thumbnails) {
               <img src={bookmarkIconEmpty} alt="Bookmark Icon" />
             </button>
             <div>
-              <h1 className="ml-4 mb-1 text-neutral-300">{`${prop.year} . ${prop.type} . ${prop.classification}`}</h1>
-              <h1 className="ml-4 mb-1 text-white font-bold">{prop.title}</h1>
+              <h1 className="ml-4 text-neutral-300">{`${prop.year} . ${prop.type} . ${prop.classification}`}</h1>
+              <h1 className="ml-4 text-white font-bold">{prop.title}</h1>
             </div>
         </div>
     );
