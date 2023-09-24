@@ -4,10 +4,9 @@ import { Thumbnails } from "../../data/thumbnails";
 function MediaCard(prop: Thumbnails) {
     return (
         <div className='mb-4'>
-            <div className={`
+            <div style={{backgroundImage: `url(${prop.imgRegular})`}} className={`
             w-52 h-32 
-            rounded-2xl 
-            bg-[url('assets/thumbnails/1998/trending/small.jpg')]
+            rounded-2xl
             flex flex-col justify-between
             bg-cover
             `}>
